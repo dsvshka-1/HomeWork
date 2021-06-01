@@ -2,7 +2,7 @@
 CC=g++
 
 #compile flags
-CFLAGS=-c -Wall -fexceptions -g -Iinclude
+CFLAGS=-Wall -fexceptions -Weffc++ -pedantic-errors -Wextra -std=c++17 -g -Iinclude -c
 
 #compile files
 SRC=main.cpp src/calculator.cpp

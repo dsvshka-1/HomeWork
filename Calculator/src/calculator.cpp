@@ -2,6 +2,7 @@
 #include <iostream>
 
 calculator::calculator(const symbol* expr):
+    cur_operator(operators::null), cur_bracket(brackets::null),
     expression(expr), cursor(expression),
     sign(1), n_left_brackets(0),
     isError(false), isEOF(false) { }
