@@ -6,9 +6,8 @@ using namespace std;
 using namespace HW;
 
 int main(int argc, char** argv)
-{
-    printf("%s\n",argv[1]);
-    if (argc < 1){
+{    
+    if (argc < 2){
         printf("%s\n","Please specify CSV file");
         return 0;
     }
