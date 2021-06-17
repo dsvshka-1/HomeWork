@@ -29,10 +29,8 @@ class my_unique_ptr final
         }
 
         T& operator*() { return *_ptr;}
-        const T& operator*() const { return *_ptr;}
 
         T* operator->() { return _ptr;}
-        const T* operator->() const { return _ptr;}
 
         operator bool() const { return _ptr;}
 

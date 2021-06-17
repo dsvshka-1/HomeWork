@@ -5,60 +5,67 @@
 
 using namespace std;
 
-void print_shp(const my_shared_ptr& shp){
+void print(my_unique_ptr& up){
+    cout << "Address of unique ptr = " << up.get() << endl << endl;
+}
+
+void print(my_shared_ptr& shp){
     cout << "Address of shared ptr = " << shp.get() << endl;
-    cout << "Shared pointer count = " << shp.use_count() << endl;
+    cout << "Shared pointer count = " << shp.use_count() << endl << endl;
 }
 
 int main()
 {
-    my_unique_ptr up(new CObject());
-    cout << "Address of unique ptr = " << up.get() << endl;
-    // Address of unique ptr = 0xc41440
-    up->print();
-    // CObject.print()
-    cout << *up << endl;
-    // CObject{}
-
-    my_shared_ptr shp1 (new CObject());
-    print_shp(shp1);
-
-    // Address of shared ptr = 0xc41460
-    // Shared pointer count = 1
-
     {
-        auto shp2 = shp1;
-        print_shp(shp2);
-        // Address of shared ptr = 0xc41460
-        // Shared pointer count = 2
-        print_shp(shp1);
-        // Address of shared ptr = 0xc41460
-        // Shared pointer count = 2
-    }
+        cout << "unique_ptr: move c-tor" << endl;
+        auto up1 = my_unique_ptr(new CObject());
+        print(up1);
 
-    print_shp(shp1);
-    // Address of shared ptr = 0xc41460
-    // Shared pointer count = 1
+        cout << "unique_ptr: move assign" << endl;
+        up1 = my_unique_ptr(new CObject());
+        print(up1);
+
+        cout << "unique_ptr: default c-tor" << endl;
+        up1 = my_unique_ptr();
+        print(up1);
+    }
 
     cout << endl;
     {
-        my_shared_ptr shp2(new CObject());
-        print_shp(shp2);
-        // Address of shared ptr = 0xc417d0
-        // Shared pointer count = 1
+        cout << "shared_ptr: move c-tor" << endl;
+        auto shp1 = my_shared_ptr(new CObject());
+        print(shp1);
 
-        shp1 = shp2;
-        print_shp(shp2);
-        // Address of shared ptr = 0xc417d0
-        // Shared pointer count = 2
-        print_shp(shp1);
-        // Address of shared ptr = 0xc417d0
-        // Shared pointer count = 2
+        {
+            cout << "shared_ptr: copy c-tor" << endl;
+            auto shp2 = shp1;
+            print(shp1);
+        }
+        print(shp1);
+
+        {
+            cout << "shared_ptr: default c-tor" << endl;
+            my_shared_ptr shp2;
+            print(shp2);
+
+            cout << "copy assign" << endl;
+            shp2 = shp1;
+            print(shp1);
+        }
+        print(shp1);
+
+        {
+            cout << "shared_ptr: working with nullptr" << endl;
+            my_shared_ptr shp2;
+            shp1 = shp2;
+            print(shp1);
+        }
+        print(shp1);
+
+        cout << "shared_ptr: move assign" << endl;
+        shp1 = my_shared_ptr(new CObject());
+        print(shp1);
     }
-
-    print_shp(shp1);
-    // Address of shared ptr = 0xc417d0
-    // Shared pointer count = 1
 
     return 0;
 }

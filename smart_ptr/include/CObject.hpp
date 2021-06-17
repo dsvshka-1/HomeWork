@@ -1,13 +1,13 @@
 #ifndef COBJECT_HPP
 #define COBJECT_HPP
 
-#include <iostream>
+#include <string>
 
 class CObject
 {
     public:
-        CObject() {}
-        virtual ~CObject() {}
+        CObject() = default;
+        virtual ~CObject() = default;
 
         // copy
         CObject(const CObject&){}
@@ -19,9 +19,7 @@ class CObject
         // move
         CObject& operator=(CObject&&){return *this;}
 
-        operator const char*() const { return "CObject{}\n"; }
-
-        void print() const { std::cout << "CObject.print()" << std::endl; }
+        std::string toString() const { return "CObject.toString()"; }
 
 };
 
