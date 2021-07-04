@@ -1,0 +1,20 @@
+Hash table 1:
+name: John; phone: 097; address: New York;
+name: Bill; phone: 096; address: Los Angeles;
+name: Samanta; phone: 095; address: Kyiv;
+
+remove Samanta:
+name: John; phone: 097; address: New York;
+name: Bill; phone: 096; address: Los Angeles;
+name: ; phone: ; address: ;
+
+
+Hash table 3:
+name: John; phone: 097; address: New York;
+name: Bill; phone: 096; address: Los Angeles;
+name: ; phone: ; address: ;
+
+remove John and add Samanta:
+name: ; phone: ; address: ;
+name: Bill; phone: 096; address: Los Angeles;
+name: Samanta; phone: 095; address: Kyiv;
