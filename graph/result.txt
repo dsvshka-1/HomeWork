@@ -1,0 +1,25 @@
+graph1.txt:
+Breadth-first search: 0 3 2 1 7 6 5 4 9 8 
+Depth-first search: 0 1 4 8 2 5 9 6 3 7 
+Shortest path of 0-th and 4-th node: 3
+
+graph2.txt:
+Breadth-first search: 0 5 2 1 4 3 
+Depth-first search: 0 1 3 4 2 5 
+Shortest path of 0-th and 4-th node: 20
+
+graph3.txt:
+Breadth-first search: 0 2 1 3 4 
+Depth-first search: 0 1 2 3 4 
+Shortest path of 0-th and 4-th node: 14
+
+graph4.txt:
+Breadth-first search: 0 3 2 1 4 
+Depth-first search: 0 1 4 2 3 
+Shortest path of 0-th and 4-th node: 3
+
+graph5.txt:
+Breadth-first search: 0 2 1 6 4 5 3 
+Depth-first search: 0 1 5 3 4 6 2 
+Shortest path of 0-th and 4-th node: 16
+
